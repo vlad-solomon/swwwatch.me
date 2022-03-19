@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Swwwatch.me</title>
+		<link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png" />
+		<link rel="manifest" href="assets/img/favicon/site.webmanifest" />
+		<link rel="mask-icon" href="assets/img/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+		<link rel="shortcut icon" href="assets/img/favicon/favicon.ico" />
+		<meta name="msapplication-TileColor" content="#ff0000" />
+		<meta name="msapplication-config" content="assets/img/favicon/browserconfig.xml" />
+		<meta name="theme-color" content="#ffffff" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/style.css" />
+	</head>
+	<body>
+		<div class="welcome">
+			<img src="assets/img/welcome.svg" alt="welcome" /><span>Press <kbd>Control</kbd> + <kbd>V</kbd> to paste the most recent copied image here!</span>
+		</div>
+		<div class="page-content">
+			<div class="column">
+				<div class="image">
+					<img class="image__uploaded" />
+					<img class="image__uploaded--blurred" />
+				</div>
+				<div class="controls">
+					<div class="button button--fixed-width" id="pick-color">
+						<img src="assets/img/color.svg" alt="pick-color" />
+						<span>pick color</span>
+					</div>
+				</div>
+			</div>
+			<div class="column">
+				<div class="logo">
+					<img class="logo__svg" src="assets/img/logo.svg" alt="swwwatch.me logo" />
+					<span class="logo__blurb">Get colors from any image blazingly fast!</span>
+					<span class="logo__anchor"><a href="https://github.com/vlad-solomon" target="_blank">Designed & developed by Vlad Solomon</a></span>
+				</div>
+				<div class="drawer" id="selected-color" data-state="closed">
+					<div class="drawer__head">Selected colour</div>
+					<div class="drawer__body"></div>
+				</div>
+				<div class="drawer" id="prev-colors" data-state="closed">
+					<div class="drawer__head">Previous colours</div>
+					<div class="drawer__body">
+						<div class="color-grid-2d"></div>
+					</div>
+				</div>
+				<div class="drawer" id="fav-colors" data-state="closed">
+					<div class="drawer__head">Favourite colours</div>
+					<div class="drawer__body">
+						<div class="color-grid-2d"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+			integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"
+			integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ=="
+			crossorigin="anonymous"
+		></script>
+		<script src="https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js"></script>
+		<script src="https://unpkg.com/@popperjs/core@2"></script>
+		<script src="https://unpkg.com/tippy.js@6"></script>
+		<script src="assets/js/app.js"></script>
+	</body>
+</html>

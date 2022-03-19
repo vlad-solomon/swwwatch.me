@@ -1,0 +1,21 @@
+// 0-TOOLS
+@import "0-tools/reset.scss";
+@import "0-tools/vars.scss";
+@import "0-tools/global.scss";
+// 1-BASICS
+@import "1-basics/button.scss";
+@import "1-basics/selected-pixel.scss";
+@import "1-basics/color-grid.scss";
+@import "1-basics/toggle.scss";
+@import "1-basics/color-info.scss";
+@import "1-basics/toast.scss";
+// 2-LAYOUTS
+@import "2-layouts/main.scss";
+@import "2-layouts/image.scss";
+@import "2-layouts/controls.scss";
+@import "2-layouts/tools.scss";
+
+@import "2-layouts/welcome.scss";
+
+@import "2-layouts/logo.scss";
+@import "2-layouts/drawer.scss";

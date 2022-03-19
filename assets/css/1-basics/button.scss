@@ -1,0 +1,52 @@
+.button {
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--blue-200);
+	border-radius: var(--border-radius);
+	width: 100%;
+	cursor: pointer;
+	transition: 100ms;
+	box-shadow: var(--box-shadow);
+	border: 1px solid var(--border-blue-300);
+	img {
+		margin-right: 8px;
+	}
+	span {
+		&::first-letter {
+			text-transform: uppercase;
+		}
+		font-size: 12px;
+	}
+	&--fixed-width {
+		width: 180px;
+	}
+	&--square {
+		height: 36px;
+		width: 36px;
+		background-color: var(--blue-100);
+		img {
+			margin: 0;
+		}
+		&:hover {
+			background-color: var(--blue-300) !important;
+		}
+	}
+	&--fav {
+		background-color: var(--blue-300);
+		span {
+			position: relative;
+			top: 1px;
+		}
+	}
+	&--selected {
+		background-color: var(--blue-300);
+		&:hover {
+			background-color: var(--blue-300) !important;
+		}
+	}
+	&:hover {
+		background-color: var(--blue-100);
+	}
+}

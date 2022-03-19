@@ -1,0 +1,59 @@
+html,
+body {
+	height: 100%;
+	font-family: "Inter", sans-serif;
+	color: var(--white-text);
+	font-weight: 600;
+	background-color: var(--blue-300);
+	background-image: url("../img/body-bg.png");
+	background-size: 20%;
+	background-position: 1px 1px;
+}
+
+*::-webkit-scrollbar {
+	display: none;
+}
+
+.page-content {
+	height: 100%;
+}
+
+* {
+	outline: none;
+	-webkit-user-select: none; /* Safari */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+/Edge */
+	user-select: none; /* Standard */
+}
+
+a {
+	color: currentColor;
+	text-decoration: none;
+}
+
+.tippy-box[data-theme~="swwwatch"] {
+	background-color: var(--blue-300);
+	text-align: center;
+	font-size: 14px;
+	span {
+		font-size: 10px;
+		font-weight: 100;
+		opacity: 0.5;
+		margin-top: -3px;
+		display: block;
+		font-style: oblique;
+	}
+}
+
+.tippy-box[data-theme~="swwwatch"][data-placement^="top"] > .tippy-arrow::before {
+	border-top-color: var(--blue-300);
+}
+.tippy-box[data-theme~="swwwatch"][data-placement^="bottom"] > .tippy-arrow::before {
+	border-bottom-color: var(--blue-300);
+}
+.tippy-box[data-theme~="swwwatch"][data-placement^="left"] > .tippy-arrow::before {
+	border-left-color: var(--blue-300);
+}
+.tippy-box[data-theme~="swwwatch"][data-placement^="right"] > .tippy-arrow::before {
+	border-right-color: var(--blue-300);
+}

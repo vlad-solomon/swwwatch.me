@@ -1,0 +1,18 @@
+.toast {
+	background-color: var(--blue-100);
+	box-shadow: var(--box-shadow);
+	padding: 15px 25px;
+	border-radius: var(--border-radius);
+	transform: translateY(100px);
+	&-wrapper {
+		pointer-events: none;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		position: fixed;
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+	}
+}

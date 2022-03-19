@@ -1,0 +1,35 @@
+.image {
+	opacity: 0;
+	pointer-events: none;
+	//
+	position: relative;
+	border: 10px solid var(--blue-200);
+	border-radius: var(--border-radius);
+	box-shadow: var(--box-shadow);
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--blue-300);
+	// pointer-events: none;
+	cursor: grab;
+	&__uploaded {
+		filter: drop-shadow(0 0 25px var(--blue-300));
+		z-index: 9999;
+		// height: 100%;
+		height: 100%;
+		width: 100%;
+		object-fit: contain;
+		// background-image: url("../img/body-bg.png");
+		&--blurred {
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			transform: scale(1.1);
+			object-fit: cover;
+			filter: blur(5px);
+			opacity: 0.4;
+			pointer-events: none;
+		}
+	}
+}

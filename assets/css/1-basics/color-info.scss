@@ -1,0 +1,36 @@
+.color-info {
+	display: flex;
+	height: 36px;
+	margin-bottom: var(--grid-gap);
+	&:nth-child(5) {
+		margin-bottom: calc(var(--grid-gap) * 2);
+	}
+	&__type {
+		height: 100%;
+		width: 60px;
+		background-color: var(--blue-300);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-transform: uppercase;
+		border-radius: var(--border-radius) 0 0 var(--border-radius);
+	}
+	&__props {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		flex: 1;
+		margin-right: 8px;
+		background-color: var(--blue-100);
+		border-radius: 0 var(--border-radius) var(--border-radius) 0;
+	}
+	&__prop {
+		width: 100%;
+		text-align: center;
+		text-transform: uppercase;
+		&:not(:last-of-type) {
+			border-right: 2px solid rgba(255, 255, 255, 0.1);
+		}
+	}
+}

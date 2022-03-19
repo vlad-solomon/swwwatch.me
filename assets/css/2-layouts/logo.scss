@@ -1,0 +1,21 @@
+.logo {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: var(--blue-100) !important;
+	height: 155px;
+	width: 100%;
+	padding-top: 32px;
+	&__svg {
+		height: 26px;
+	}
+	&__blurb {
+		margin: 18px 0 24px 0;
+		font-size: 18px;
+	}
+	&__anchor {
+		font-size: 10px;
+		font-weight: 400;
+		opacity: 0.3;
+	}
+}

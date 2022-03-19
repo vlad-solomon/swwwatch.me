@@ -1,0 +1,31 @@
+.selected-pixel {
+	position: absolute;
+	top: 40px;
+	right: 40px;
+	height: 50px;
+	// width: 150px;
+	background-color: var(--blue-200);
+	display: flex;
+	align-items: center;
+	border-radius: var(--border-radius);
+	border: 1px solid var(--border-blue-300);
+	box-shadow: var(--box-shadow);
+	pointer-events: none;
+	z-index: 999999999;
+	&__color {
+		height: 100%;
+		aspect-ratio: 1/1;
+		background-color: white;
+		border: 1px solid var(--border-blue-300);
+		border-radius: var(--border-radius);
+	}
+	&__hex {
+		width: 100%;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	&--left {
+		right: unset;
+		left: 40px;
+	}
+}

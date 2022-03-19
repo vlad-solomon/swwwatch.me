@@ -1,0 +1,29 @@
+.toggle {
+	height: 14px;
+	width: 22px;
+	border-radius: 20px;
+	background-color: var(--blue-100);
+	margin-left: 4px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	cursor: pointer;
+	padding: 0 4px;
+	#toggle-thumb {
+		height: 8px;
+		width: 8px;
+		background-color: var(--blue-300);
+		border-radius: 4px;
+	}
+}
+
+#toggle-text {
+	display: flex;
+	align-items: center;
+	font-size: 12px;
+	font-weight: 400;
+	margin-bottom: var(--grid-gap);
+	span {
+		margin-left: auto;
+	}
+}

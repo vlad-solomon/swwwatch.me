@@ -1,0 +1,12 @@
+.controls {
+	opacity: 0;
+	pointer-events: none;
+	display: flex;
+	.button {
+		&:not(:last-of-type) {
+			margin-right: var(--grid-gap);
+		}
+	}
+	// height: 50px;
+	// outline: 1px solid red;
+}
