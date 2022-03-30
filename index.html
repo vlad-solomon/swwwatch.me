@@ -4,7 +4,6 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Swwwatch.me</title>
 		<link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-touch-icon.png" />
 		<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png" />
 		<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png" />
@@ -14,14 +13,63 @@
 		<meta name="msapplication-TileColor" content="#ff0000" />
 		<meta name="msapplication-config" content="assets/img/favicon/browserconfig.xml" />
 		<meta name="theme-color" content="#ffffff" />
+
+		<!-- Primary Meta Tags -->
+		<title>Swwwatch.me - Get colours from images blazingly fast!</title>
+		<meta name="title" content="Swwwatch.me - Get colours from images blazingly fast!" />
+		<meta name="description" content="Get colours from images blazingly fast! Save your favourites, convert into the most popular formats, and even generate colour palettes. GIFs work too!" />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://swwwatch.me/" />
+		<meta property="og:title" content="Swwwatch.me - Get colours from images blazingly fast!" />
+		<meta
+			property="og:description"
+			content="Get colours from images blazingly fast! Save your favourites, convert into the most popular formats, and even generate colour palettes. GIFs work too!"
+		/>
+		<meta property="og:image" content="https://raw.githubusercontent.com/vlad-solomon/swwwatch.me/main/assets/img/splash.png" />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content="https://swwwatch.me/" />
+		<meta property="twitter:title" content="Swwwatch.me - Get colours from images blazingly fast!" />
+		<meta
+			property="twitter:description"
+			content="Get colours from images blazingly fast! Save your favourites, convert into the most popular formats, and even generate colour palettes. GIFs work too!"
+		/>
+		<meta property="twitter:image" content="https://raw.githubusercontent.com/vlad-solomon/swwwatch.me/main/assets/img/splash.png" />
+
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
 		<link rel="stylesheet" href="assets/css/style.css" />
 	</head>
-	<body>
+	<body class="hidden">
 		<div class="welcome">
 			<img src="assets/img/welcome.svg" alt="welcome" /><span>Press <kbd>Control</kbd> + <kbd>V</kbd> to paste the most recent copied image here!</span>
+		</div>
+		<div class="palette">
+			<div class="palette__wrapper">
+				<div class="palette__head">Generated color palette</div>
+				<div class="palette__body">
+					<div id="download-wrapper">
+						<div class="generated-palette inset-border"></div>
+						<div class="palette__footer">
+							<img src="assets/img/logo.svg" alt="logo" />
+						</div>
+					</div>
+					<div class="controls">
+						<div class="button" id="download-palette">
+							<img src="assets/img/download.svg" alt="download-palette" />
+							<span>Download palette</span>
+						</div>
+						<div class="button" id="close-palette">
+							<img src="assets/img/close.svg" alt="close" />
+							<span>Close</span>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class="page-content">
 			<div class="column">
@@ -29,17 +77,21 @@
 					<img class="image__uploaded" />
 					<img class="image__uploaded--blurred" />
 				</div>
-				<div class="controls">
+				<div class="controls controls--default">
 					<div class="button button--fixed-width" id="pick-color">
 						<img src="assets/img/color.svg" alt="pick-color" />
 						<span>pick color</span>
+					</div>
+					<div class="button button--fixed-width" id="generate-palette">
+						<img src="assets/img/palette.svg" alt="generate-palette" />
+						<span>generate palette</span>
 					</div>
 				</div>
 			</div>
 			<div class="column">
 				<div class="logo">
 					<img class="logo__svg" src="assets/img/logo.svg" alt="swwwatch.me logo" />
-					<span class="logo__blurb">Get colors from any image blazingly fast!</span>
+					<span class="logo__blurb">Get colours from any image blazingly fast!</span>
 					<span class="logo__anchor"><a href="https://github.com/vlad-solomon" target="_blank">Designed & developed by Vlad Solomon</a></span>
 				</div>
 				<div class="drawer" id="selected-color" data-state="closed">
@@ -73,6 +125,8 @@
 		<script src="https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js"></script>
 		<script src="https://unpkg.com/@popperjs/core@2"></script>
 		<script src="https://unpkg.com/tippy.js@6"></script>
+		<script src="https://cdn.jsdelivr.net/npm/node-vibrant@3.2.1-alpha.1/dist/vibrant.min.js"></script>
+		<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 		<script src="assets/js/app.js"></script>
 	</body>
 </html>

@@ -8,20 +8,13 @@
 	display: flex;
 	overflow: hidden;
 	margin-bottom: calc(var(--grid-gap) * 2);
-	&::before {
-		content: "";
-		position: absolute;
-		display: block;
-		height: 100%;
-		width: 100%;
-		border: 5px solid var(--border-blue-300);
-		z-index: 1;
-	}
 	&__color {
+		cursor: pointer;
 		height: 100%;
 		flex: 1;
 		&:nth-of-type(3) {
 			flex: 2;
+			pointer-events: none;
 		}
 	}
 	&__gradient {

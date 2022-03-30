@@ -1,10 +1,12 @@
 .page-content {
-	padding: 40px;
+	// padding: 40px;
 	display: grid;
 	grid-template-columns: 1fr 445px;
 	grid-template-rows: 100%;
 	gap: var(--grid-gap);
+	padding: 0 40px;
 	.column {
+		padding: 40px 0;
 		// & > div {
 		// outline: 1px dashed var(--white);
 		// }
@@ -14,6 +16,7 @@
 			gap: var(--grid-gap);
 		}
 		&:last-of-type {
+			overflow: auto;
 			z-index: 1;
 			& > div {
 				background-color: var(--blue-200);
