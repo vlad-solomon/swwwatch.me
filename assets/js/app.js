@@ -1,10 +1,14 @@
 let prevColors, favColors;
 const ANIM_DUR = 0.1;
 
-if (window.EyeDropper) {
-	$("body").removeClass("hidden");
+if (location.protocol === "https:") {
+	if (window.EyeDropper) {
+		$("body").removeClass("hidden");
+	} else {
+		alert(`Sorry, ${navigator.userAgentData.brand.at(-1).brand} is not supported yet!`);
+	}
 } else {
-	alert(`Sorry, ${navigator.appCodeName} is not supported yet!`);
+	alert(`You're trying to access swwwatch.me from an unsecured domain. Try https://swwwatch.me instead!`);
 }
 
 if ("prevColors" in localStorage) {
