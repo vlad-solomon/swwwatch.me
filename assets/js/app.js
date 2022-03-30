@@ -5,7 +5,7 @@ if (location.protocol === "https:") {
 	if (window.EyeDropper) {
 		$("body").removeClass("hidden");
 	} else {
-		alert(`Sorry, ${navigator.userAgentData.brand.at(-1).brand} is not supported yet!`);
+		alert(`Sorry, your browser is not supported yet!`);
 	}
 } else {
 	alert(`You're trying to access swwwatch.me from an unsecured domain. Try https://swwwatch.me instead!`);
