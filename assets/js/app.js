@@ -64,21 +64,23 @@ instance.on("panend", function () {
 });
 
 document.addEventListener("paste", function (event) {
-	const clipboardItems = event.clipboardData.items;
-	const items = [].slice.call(clipboardItems).filter(function (item) {
-		return item.type.indexOf("image") !== -1;
-	});
-	if (items.length === 0) return;
+	if ($(".palette").css("display") === "none") {
+		const clipboardItems = event.clipboardData.items;
+		const items = [].slice.call(clipboardItems).filter(function (item) {
+			return item.type.indexOf("image") !== -1;
+		});
+		if (items.length === 0) return;
 
-	const item = items[0];
-	const blob = item.getAsFile();
+		const item = items[0];
+		const blob = item.getAsFile();
 
-	document.querySelector(".image__uploaded").src = URL.createObjectURL(blob);
-	document.querySelector(".image__uploaded--blurred").src = URL.createObjectURL(blob);
+		document.querySelector(".image__uploaded").src = URL.createObjectURL(blob);
+		document.querySelector(".image__uploaded--blurred").src = URL.createObjectURL(blob);
 
-	gsap.timeline()
-		.to($(".welcome"), { duration: ANIM_DUR * 5, opacity: 0, "pointer-events": "none" })
-		.to($(".image, .controls--default"), { duration: ANIM_DUR * 5, opacity: 1, "pointer-events": "auto" });
+		gsap.timeline()
+			.to($(".welcome"), { duration: ANIM_DUR * 5, opacity: 0, "pointer-events": "none" })
+			.to($(".image, .controls--default"), { duration: ANIM_DUR * 5, opacity: 1, "pointer-events": "auto" });
+	}
 });
 
 function fetchColor(url) {
@@ -254,8 +256,6 @@ $(document).on("click", ".button--copy-color", function () {
 	navigator.clipboard.writeText(copiedColor);
 });
 
-let paletteOrder = ["DarkVibrant", "DarkMuted", "Muted", "Vibrant", "LightVibrant", "LightMuted"];
-
 function getContrastColor(hexcolor) {
 	var r = parseInt(hexcolor.substr(1, 2), 16);
 	var g = parseInt(hexcolor.substr(3, 2), 16);
@@ -264,23 +264,29 @@ function getContrastColor(hexcolor) {
 	return yiq >= 128 ? "black" : "white";
 }
 
-$(document).on("click", "#generate-palette", function () {
-	let image = $(".image__uploaded").attr("src");
-	$(".palette-color").remove();
-	Vibrant.from(image)
-		.getPalette()
-		.then(function (palette) {
-			for (i = 0; i < paletteOrder.length; i++) {
-				let paletteSection = paletteOrder[i];
-				let hex = palette[paletteSection].hex;
-				let color = `<div class="palette-color" style="background-color: ${hex}"><span style="color: ${getContrastColor(hex)}">${hex}</span></div>`;
-				$(".generated-palette").append(color);
-			}
-			$(".palette").css("display", "flex");
+const rgbToHex = (r, g, b) =>
+	"#" +
+	[r, g, b]
+		.map((x) => {
+			const hex = x.toString(16);
+			return hex.length === 1 ? "0" + hex : hex;
 		})
-		.then(() => {
-			gsap.timeline().set($(".palette"), { display: "flex" }).to($(".palette"), { duration: 0.2, opacity: 1, "pointer-events": "auto" });
-		});
+		.join("");
+
+const colorThief = new ColorThief();
+const uploadedImage = document.querySelector(".image__uploaded");
+
+$(document).on("click", "#generate-palette", function () {
+	let palette = colorThief.getPalette(uploadedImage, 6);
+	$(".palette-color").remove();
+
+	for (i = 0; i < palette.length; i++) {
+		let hex = rgbToHex(palette[i][0], palette[i][1], palette[i][2]);
+		let color = String.raw`<div class="palette-color" style="background-color: ${hex}"><span style="color: ${getContrastColor(hex)}">${hex}</span></div>`;
+		$(".generated-palette").append(color);
+	}
+	$(".palette").css("display", "flex");
+	gsap.timeline().set($(".palette"), { display: "flex" }).to($(".palette"), { duration: 0.2, opacity: 1, "pointer-events": "auto" });
 });
 
 $(document).on("click", "#close-palette", function () {
